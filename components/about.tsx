@@ -1,38 +1,38 @@
-'use client'
+"use client";
 
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Code, Coffee, Lightbulb, Rocket } from 'lucide-react'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Code, Coffee, Lightbulb, Rocket } from "lucide-react";
 
 export default function About() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
-  }
+        staggerChildren: 0.2,
+      },
+    },
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 }
-    }
-  }
+      transition: { duration: 0.6 },
+    },
+  };
 
   const facts = [
-    { icon: Code, text: 'Fresher with knowledge' },
+    { icon: Code, text: "Fresher with knowledge" },
     // { icon: Coffee, text: '500+ cups of coffee consumed' },
     // { icon: Lightbulb, text: ' projects completed' },
-    { icon: Rocket, text: 'Always learning new technologies' }
-  ]
+    { icon: Rocket, text: "Always learning new technologies" },
+  ];
 
   return (
     <section id="about" className="py-20 bg-gray-900">
@@ -57,7 +57,11 @@ export default function About() {
                 <motion.div
                   className="absolute inset-0 border-4 border-green-500 rounded-full"
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                 />
                 <img
                   src="/image.jpeg"
@@ -65,7 +69,7 @@ export default function About() {
                   className="w-full h-full object-cover"
                 />
               </motion.div>
-              
+
               {/* Floating Elements */}
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
@@ -87,39 +91,55 @@ export default function About() {
                 variants={itemVariants}
                 className="text-4xl md:text-5xl font-bold mb-6"
               >
-                About{' '}
+                About{" "}
                 <span className="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
                   Me
                 </span>
               </motion.h2>
-              
-              <motion.div variants={itemVariants} className="space-y-4 text-gray-300 text-lg leading-relaxed">
+
+              <motion.div
+                variants={itemVariants}
+                className="space-y-4 text-gray-300 text-lg leading-relaxed"
+              >
                 <p>
-                  I'm a passionate full-stack developer with a love for creating innovative 
-                  digital solutions. My journey in tech started with curiosity and has evolved 
-                  into a career focused on building user-centric applications.
+                  I'm a motivated full-stack developer and a lifelong learner,
+                  passionate about building creative digital solutions. My
+                  journey in tech began with curiosity, and I’m continuously
+                  learning to sharpen my skills and grow as a developer.
                 </p>
                 <p>
-                  When I'm not coding, you'll find me exploring new technologies, contributing 
-                  to open-source projects, or sharing knowledge with the developer community. 
-                  I believe in continuous learning and staying updated with the latest industry trends.
+                  As a fresher, I enjoy exploring new technologies,
+                  experimenting with projects, and contributing to the developer
+                  community whenever possible. I believe in continuous learning,
+                  adapting to change, and staying aligned with the latest
+                  industry practices.
                 </p>
                 <p>
-                  My goal is to create meaningful digital experiences that solve real-world 
-                  problems while maintaining clean, efficient, and scalable code.
+                  My goal is to grow as a developer while creating impactful
+                  digital experiences that solve real-world challenges, with a
+                  focus on writing clean, efficient, and scalable code.
                 </p>
               </motion.div>
             </div>
 
             {/* Fun Facts */}
-            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-2 gap-4"
+            >
               {facts.map((fact, index) => (
                 <motion.div
                   key={index}
-                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(16, 185, 129, 0.1)' }}
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgba(16, 185, 129, 0.1)",
+                  }}
                   className="flex items-center space-x-3 p-4 rounded-lg border border-green-500/20 transition-all duration-300"
                 >
-                  <fact.icon className="text-green-400 flex-shrink-0" size={20} />
+                  <fact.icon
+                    className="text-green-400 flex-shrink-0"
+                    size={20}
+                  />
                   <span className="text-sm text-gray-300">{fact.text}</span>
                 </motion.div>
               ))}
@@ -128,5 +148,5 @@ export default function About() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
